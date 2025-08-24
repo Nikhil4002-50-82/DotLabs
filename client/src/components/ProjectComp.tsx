@@ -3,11 +3,21 @@ import React from "react";
 interface ProjectCompProps {
   title: string;
   projectSrc: string;
+  projectLink: string;
 }
 
-const ProjectComp: React.FC<ProjectCompProps> = ({ title, projectSrc }) => {
+const ProjectComp: React.FC<ProjectCompProps> = ({
+  title,
+  projectSrc,
+  projectLink,
+}) => {
   return (
-    <div className="w-[20em] h-[14em] p-0 flex flex-col items-center shadow-custom rounded-xl">
+    <div
+      className="w-[20em] h-[14em] p-0 flex flex-col items-center shadow-custom rounded-xl"
+      onClick={() => {
+        window.open(projectLink, "_blank");
+      }}
+    >
       <div className="h-[85%] w-full">
         <img
           src={projectSrc}
