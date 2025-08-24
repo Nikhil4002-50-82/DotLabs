@@ -42,6 +42,11 @@ const Home: React.FC = () => {
               projectSrc="/EventManagement.png"
               projectLink="https://github.com/Nikhil4002-50-82/Event-Management"
             />
+            <ProjectComp
+              title="Medibells"
+              projectSrc="/Medibells.png"
+              projectLink="https://drive.google.com/file/d/1RIXxCAkCjlfI575oh76QS6ScfVavrovK/view"
+            />
           </div>
         </div>
       </div>
