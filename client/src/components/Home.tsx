@@ -26,7 +26,12 @@ const Home: React.FC = () => {
           <h2 className="text-xl sm:text-2xl font-montserrat font-semibold px-4 sm:px-6 md:px-8 mt-4 sm:mt-6 md:mt-8">
             Other Projects
           </h2>
-          <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+          <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <ProjectComp
+              title="Medibells"
+              projectSrc="/Medibells.png"
+              projectLink="https://drive.google.com/file/d/1RIXxCAkCjlfI575oh76QS6ScfVavrovK/view"
+            />
             <ProjectComp
               title="Quiz-2k25"
               projectSrc="/quiz-2k25.png"
@@ -41,11 +46,6 @@ const Home: React.FC = () => {
               title="Event Management"
               projectSrc="/EventManagement.png"
               projectLink="https://github.com/Nikhil4002-50-82/Event-Management"
-            />
-            <ProjectComp
-              title="Medibells"
-              projectSrc="/Medibells.png"
-              projectLink="https://drive.google.com/file/d/1RIXxCAkCjlfI575oh76QS6ScfVavrovK/view"
             />
           </div>
         </div>
