@@ -14,8 +14,6 @@ Currently:
 Future Additions:
 - Web Applications
 - Mobile App Development
-- UI/UX Design
-- API Development & Integration
 
 ## Screenshots
 
