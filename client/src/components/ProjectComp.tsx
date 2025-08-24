@@ -13,7 +13,7 @@ const ProjectComp: React.FC<ProjectCompProps> = ({
 }) => {
   return (
     <div
-      className="w-[20em] h-[14em] flex flex-col items-center shadow-custom rounded-xl border-2 border-gray-600"
+      className="w-[20em] h-[14em] flex flex-col items-center shadow-custom rounded-xl border-2 border-black"
       onClick={() => {
         window.open(projectLink, "_blank");
       }}
@@ -25,7 +25,7 @@ const ProjectComp: React.FC<ProjectCompProps> = ({
           className="w-full h-full object-cover rounded-t-xl"
         />
       </div>
-      <div className="w-full flex items-center justify-center p-2 border-t-2 border-gray-600">
+      <div className="w-full flex items-center justify-center p-2 border-t-2 border-black">
         <h3 className="font-montserrat font-semibold ">{title}</h3>
       </div>
     </div>
