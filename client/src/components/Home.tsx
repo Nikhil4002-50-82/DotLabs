@@ -11,11 +11,11 @@ const Home: React.FC = () => {
 
       {/* Hero Section with Breaking Bad BG */}
       <section
-        className="h-screen flex flex-col justify-center items-center text-center relative"
+        className="pt-20 h-screen flex flex-col justify-center items-center text-center relative"
         style={{
           backgroundImage: "url('/bg.jpg')",
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "top",
         }}
       >
         <div className="absolute inset-0 bg-[#1a1a1a]/70"></div>
@@ -47,7 +47,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* About Section styled like comic panel */}
-      <section className="py-20 px-6 max-w-6xl mx-auto border-4 border-black bg-[#f5f5f5] text-[#1a1a1a] rounded-2xl shadow-xl">
+      <section className="w-full py-20 px-6  mx-auto border-4 border-black bg-[#f5f5f5] text-[#1a1a1a] shadow-xl text-center">
         <h2 className="text-4xl font-bold mb-6">👨‍💻 About Me</h2>
         <p className="text-lg leading-relaxed">
           I’m a full-stack developer blending <span className="bg-[#e0b38c] px-1">design</span>, 
@@ -61,7 +61,8 @@ const Home: React.FC = () => {
       {/* Projects Section */}
       <section className="py-20 px-6 max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12 text-[#e0b38c]">🔥 Featured Projects</h2>
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="flex items-center justify-center">
+          <div className="max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-12">
           <ProjectComp
             title="Dobbespet Public School"
             projectSrc="/DobbespetPublicSchool.png"
@@ -77,6 +78,7 @@ const Home: React.FC = () => {
             projectSrc="/quiz-2k25.png"
             projectLink="https://quiz-2k25.vercel.app/"
           />
+        </div>
         </div>
       </section>
 
@@ -110,8 +112,8 @@ const Home: React.FC = () => {
           whileHover={{ scale: 1.05 }}
           className="inline-block relative px-6 py-4 bg-[#f5f5f5] text-black rounded-2xl border-4 border-black shadow-lg"
         >
-          “Working with Vilas was an incredible experience.  
-          He built a high-performing site with style.”  
+          “Working with DotLabs was an incredible experience.  
+          They built a high-performing site with style.”  
           <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-0 h-0 
             border-l-[15px] border-r-[15px] border-t-[20px] border-transparent 
             border-t-[#f5f5f5]"></div>

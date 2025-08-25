@@ -7,7 +7,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div className="w-full px-6 md:px-10 py-4 flex justify-between items-center 
+    <div className="w-full px-6 md:px-10 py-6 flex justify-between items-center 
       bg-[#7a3c3c] text-[#f5f5f5] border-b-4 border-black shadow-lg">
       
       {/* Logo */}
@@ -18,9 +18,9 @@ const Header: React.FC = () => {
 
       {/* Desktop Nav */}
       <nav className="hidden md:flex space-x-6 text-lg font-semibold">
-        <a href="#" className="hover:text-[#e0b38c] transition-colors">Home</a>
-        <a href="#" className="hover:text-[#e0b38c] transition-colors">Services</a>
-        <a href="#" className="hover:text-[#e0b38c] transition-colors">Portfolio</a>
+        <a href="#" className="hover:text-[#e0b38c] transition-colors">Linkedin</a>
+        <a href="#" className="hover:text-[#e0b38c] transition-colors">Github</a>
+        <a href="#" className="hover:text-[#e0b38c] transition-colors">Email</a>
         <a href="#" className="hover:text-[#e0b38c] transition-colors">Contact</a>
       </nav>
 
@@ -52,13 +52,13 @@ const Header: React.FC = () => {
           bg-[#1a1a1a] text-[#f5f5f5] border-l-4 border-black shadow-xl 
           flex flex-col items-center space-y-6 py-8 text-xl font-bold z-50">
           <a href="#" onClick={toggleMenu} className="hover:text-[#e0b38c] transition-colors">
-            Home
+            Linkedin
           </a>
           <a href="#" onClick={toggleMenu} className="hover:text-[#e0b38c] transition-colors">
-            Services
+            Github
           </a>
           <a href="#" onClick={toggleMenu} className="hover:text-[#e0b38c] transition-colors">
-            Portfolio
+            Email
           </a>
           <a href="#" onClick={toggleMenu} className="hover:text-[#e0b38c] transition-colors">
             Contact
