@@ -3,7 +3,6 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import ProjectComp from "./ProjectComp";
-import StaticComp from "./StaticComp";
 
 const Home: React.FC = () => {
   return (
@@ -30,19 +29,6 @@ const Home: React.FC = () => {
             Get a Quote
           </button>
         </section>
-        {/* add your projects here bro */}
-        {/* <div className="mb-0">
-          <h2 className="text-xl sm:text-2xl font-montserrat font-semibold px-4 sm:px-6 md:px-8">
-            Freelanced Works
-          </h2>
-          <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
-            <ProjectComp
-              title="Dobbespet Public School"
-              projectSrc="/DobbespetPublicSchool.png"
-              projectLink="https://dobbespetpublicschool.com/"
-            />
-          </div>
-        </div> */}
         <section className="py-16 px-6 max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Freelance Works</h2>
           <section className="flex justify-center items-center">
@@ -79,33 +65,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
-        {/* <div>
-          <h2 className="text-xl sm:text-2xl font-montserrat font-semibold px-4 sm:px-6 md:px-8 mt-4 sm:mt-6 md:mt-8">
-            Other Projects
-          </h2>
-          <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <ProjectComp
-              title="Medibells"
-              projectSrc="/Medibells.png"
-              projectLink="https://drive.google.com/file/d/1RIXxCAkCjlfI575oh76QS6ScfVavrovK/view"
-            />
-            <ProjectComp
-              title="Quiz-2k25"
-              projectSrc="/quiz-2k25.png"
-              projectLink="https://quiz-2k25.vercel.app/"
-            />
-            <ProjectComp
-              title="ChatMates"
-              projectSrc="/ChatMates.png"
-              projectLink="https://my-chat-wine-eta.vercel.app/"
-            />
-            <ProjectComp
-              title="Event Management"
-              projectSrc="/EventManagement.png"
-              projectLink="https://github.com/Nikhil4002-50-82/Event-Management"
-            />
-          </div>
-        </div> */}
         <section className="py-16 px-6 mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6"> Other Projects</h2>
           <div className="flex items-center justify-center">
@@ -141,7 +100,6 @@ const Home: React.FC = () => {
           </p>
         </section>
       </div>
-      {/* <StaticComp /> */}
       <Footer />
     </div>
   );
