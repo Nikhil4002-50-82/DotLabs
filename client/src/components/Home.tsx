@@ -1,105 +1,123 @@
 import React from "react";
-
 import Header from "./Header";
 import Footer from "./Footer";
 import ProjectComp from "./ProjectComp";
+import { motion } from "framer-motion";
 
 const Home: React.FC = () => {
   return (
-    <div>
+    <div className="bg-[#7a3c3c] text-[#f5f5f5] overflow-hidden font-sans">
       <Header />
-      <div className="h-auto my-4 sm:my-6 md:my-8">
-        <section className="py-16 px-6 max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">About Us</h2>
-          <p className="text-lg text-gray-700">
-            We are passionate web developers specializing in React, Express,
-            Supabase, and Tailwind CSS. We love creating modern, responsive, and
-            scalable web applications that provide excellent user experiences.
-          </p>
-        </section>
-        <section className="text-center py-16 bg-gray-900 text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Building Modern & Responsive Websites
+
+      {/* Hero Section with Breaking Bad BG */}
+      <section
+        className="h-screen flex flex-col justify-center items-center text-center relative"
+        style={{
+          backgroundImage: "url('/bg.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-[#1a1a1a]/70"></div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="relative z-10"
+        >
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-[#e0b38c] drop-shadow-[3px_3px_0px_#000]">
+            Let’s Cook Some <span className="text-[#3d6a6b]">Web Magic</span> 💥
           </h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto mb-6">
-            I create fast, scalable, and visually appealing websites tailored to
-            your brand.
+          <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-[#f5f5f5]">
+            We build modern, comic-inspired, badass websites —
+            <br /> Breaking the rules of boring design.
           </p>
-          <button className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600">
-            Get a Quote
-          </button>
-        </section>
-        <section className="py-16 px-6 max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Freelance Works</h2>
-          <section className="flex justify-center items-center">
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
-              <ProjectComp
-              title="Dobbespet Public School"
-              projectSrc="/DobbespetPublicSchool.png"
-              projectLink="https://dobbespetpublicschool.com/"
-            />
-            </div>
-          </section>
-        </section>
-        <section className="py-16 px-6  mx-auto bg-gray-900">
-          <h2 className="text-3xl font-bold text-center mb-10 text-white">
-            Services
-          </h2>
-          <div className="flex items-center justify-center">
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl">
-              {[
-                "Web Development (React, Tailwind, Vite)",
-                "Full-Stack Development (React + Express + Supabase)",
-                "UI/UX Design & Prototyping",
-                "Landing Page & Portfolio Sites",
-                "SEO Optimization & Performance Tuning",
-                "Future Services: Mobile Apps, AI Integrations",
-              ].map((service, index) => (
-                <div
-                  key={index}
-                  className="p-6 bg-white shadow-md rounded-xl text-center"
-                >
-                  <p>{service}</p>
-                </div>
-              ))}
-            </div>
+
+          {/* Speech Bubble CTA */}
+          <div className="mt-10 relative inline-block">
+            <button className="px-8 py-3 bg-[#e0b38c] text-black font-bold rounded-full shadow-lg border-4 border-black relative z-10">
+              💬 Hire Me
+            </button>
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-0 h-0 
+              border-l-[20px] border-r-[20px] border-t-[20px] border-transparent 
+              border-t-[#e0b38c]"></div>
           </div>
-        </section>
-        <section className="py-16 px-6 mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6"> Other Projects</h2>
-          <div className="flex items-center justify-center">
-            <section className="grid grid-cols-1 gap-10 md:grid-cols-3 ">
-              <ProjectComp
-                title="Medibells"
-                projectSrc="/Medibells.png"
-                projectLink="https://drive.google.com/file/d/1RIXxCAkCjlfI575oh76QS6ScfVavrovK/view"
-              />
-              <ProjectComp
-                title="Quiz-2k25"
-                projectSrc="/quiz-2k25.png"
-                projectLink="https://quiz-2k25.vercel.app/"
-              />
-              <ProjectComp
-                title="ChatMates"
-                projectSrc="/ChatMates.png"
-                projectLink="https://my-chat-wine-eta.vercel.app/"
-              />
-              <ProjectComp
-                title="Event Management"
-                projectSrc="/EventManagement.png"
-                projectLink="https://github.com/Nikhil4002-50-82/Event-Management"
-              />
-            </section>
-          </div>
-        </section>
-        <section className="py-16 px-6 bg-gray-900 text-white">
-          <h2 className="text-3xl font-bold text-center mb-6">Testimonials</h2>
-          <p className="text-center max-w-xl mx-auto">
-            “We strive to deliver high-quality web solutions that meet client
-            expectations.”
-          </p>
-        </section>
-      </div>
+        </motion.div>
+      </section>
+
+      {/* About Section styled like comic panel */}
+      <section className="py-20 px-6 max-w-6xl mx-auto border-4 border-black bg-[#f5f5f5] text-[#1a1a1a] rounded-2xl shadow-xl">
+        <h2 className="text-4xl font-bold mb-6">👨‍💻 About Me</h2>
+        <p className="text-lg leading-relaxed">
+          I’m a full-stack developer blending <span className="bg-[#e0b38c] px-1">design</span>, 
+          <span className="bg-[#3d6a6b] px-1 text-white">performance</span>, and 
+          <span className="bg-[#7a3c3c] px-1 text-white">storytelling</span> into every build.  
+          Inspired by Breaking Bad’s raw energy — I create websites that are 
+          bold, memorable, and a little dangerous. 🚬
+        </p>
+      </section>
+
+      {/* Projects Section */}
+      <section className="py-20 px-6 max-w-7xl mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-12 text-[#e0b38c]">🔥 Featured Projects</h2>
+        <div className="grid md:grid-cols-3 gap-12">
+          <ProjectComp
+            title="Dobbespet Public School"
+            projectSrc="/DobbespetPublicSchool.png"
+            projectLink="https://dobbespetpublicschool.com/"
+          />
+          <ProjectComp
+            title="Medibells"
+            projectSrc="/Medibells.png"
+            projectLink="https://drive.google.com/file/d/1RIXxCAkCjlfI575oh76QS6ScfVavrovK/view"
+          />
+          <ProjectComp
+            title="Quiz-2k25"
+            projectSrc="/quiz-2k25.png"
+            projectLink="https://quiz-2k25.vercel.app/"
+          />
+        </div>
+      </section>
+
+      {/* Services Comic Panel */}
+      <section className="py-20 px-6 bg-[#1a1a1a] text-[#f5f5f5] border-t-4 border-b-4 border-[#3d6a6b]">
+        <h2 className="text-4xl font-bold text-center mb-12">💼 Services</h2>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[
+            "⚡ Web Development (React + Tailwind + Vite)",
+            "🛠 Full-Stack Development (Express + Supabase)",
+            "🎨 UI/UX Design & Prototyping",
+            "🚀 Landing Page & Portfolio Sites",
+            "📈 SEO Optimization & Performance",
+            "🤖 Future: AI & Mobile Apps",
+          ].map((service, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.05 }}
+              className="p-6 rounded-xl bg-[#e0b38c] text-black border-4 border-black shadow-xl font-semibold"
+            >
+              {service}
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Testimonials Comic Bubble */}
+      <section className="py-20 px-6 max-w-4xl mx-auto text-center">
+        <h2 className="text-4xl font-bold mb-8 text-[#e0b38c]">💬 Testimonials</h2>
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          className="inline-block relative px-6 py-4 bg-[#f5f5f5] text-black rounded-2xl border-4 border-black shadow-lg"
+        >
+          “Working with Vilas was an incredible experience.  
+          He built a high-performing site with style.”  
+          <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-0 h-0 
+            border-l-[15px] border-r-[15px] border-t-[20px] border-transparent 
+            border-t-[#f5f5f5]"></div>
+        </motion.div>
+      </section>
+
       <Footer />
     </div>
   );
