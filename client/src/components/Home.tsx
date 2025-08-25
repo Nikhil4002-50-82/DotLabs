@@ -8,7 +8,7 @@ const Home: React.FC = () => {
   return (
     <div>
       <Header />
-      <div className="h-auto my-4 sm:my-6 md:my-8">
+      <div className="h-auto pt-10 my-4 sm:my-6 md:my-8">
         <section className="py-16 px-6 max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">About Us</h2>
           <p className="text-lg text-gray-700">

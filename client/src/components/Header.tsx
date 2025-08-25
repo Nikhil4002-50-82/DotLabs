@@ -6,7 +6,7 @@ const Header: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <div className="w-full px-4 sm:px-6 md:px-10 py-4 sm:py-6 mb-2 flex justify-between items-center shadow-md">
+    <div className="fixed top-0 left-0 z-50 bg-white w-full px-4 sm:px-6 md:px-10 py-4 sm:py-6 mb-2 flex justify-between items-center shadow-md">
       <h1 className="font-DotLabs text-2xl sm:text-3xl text-gray-900 font-bold">
         DotLabs
       </h1>
