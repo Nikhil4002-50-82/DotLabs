@@ -1,44 +1,28 @@
-import React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
-interface ProjectCompProps {
-  title: string;
-  projectSrc: string;
-  projectLink: string;
-}
+export default function ProjectComp({ title, description, image }: any) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"], // triggers when in view
+  });
 
-const ProjectComp: React.FC<ProjectCompProps> = ({
-  title,
-  projectSrc,
-  projectLink,
-}) => {
+  // Smooth parallax motion (adjust values for intensity)
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.8]);
+
   return (
-    <div
-      className="w-[20em] h-[14em] flex flex-col items-center 
-        bg-[#7a3c3c] border-4 border-black rounded-xl overflow-hidden 
-        shadow-[6px_6px_0px_#000] cursor-pointer transition-transform 
-        hover:scale-105 hover:shadow-[10px_10px_0px_#000]"
-      onClick={() => {
-        window.open(projectLink, "_blank");
-      }}
+    <motion.div
+      ref={ref}
+      style={{ y, opacity }}
+      className="relative rounded-2xl overflow-hidden shadow-xl bg-[#0c3547]/80 backdrop-blur-sm border border-[#47a7ae]/20 hover:scale-[1.02] transition-transform duration-500"
     >
-      {/* Thumbnail */}
-      <div className="h-[85%] w-full border-b-4 border-black">
-        <img
-          src={projectSrc}
-          alt="Project"
-          className="w-full h-full object-cover"
-        />
+      <img src={image} alt={title} className="w-full h-64 object-cover" />
+      <div className="p-6">
+        <h3 className="text-2xl font-bold text-[#dddce4]">{title}</h3>
+        <p className="text-[#83d0d2] mt-2">{description}</p>
       </div>
-
-      {/* Title */}
-      <div className="w-full flex items-center justify-center p-2 bg-[#1a1a1a]">
-        <h3 className="font-montserrat font-bold text-lg tracking-wide 
-          text-[#e0b38c] drop-shadow-[2px_2px_0px_#000]">
-          {title}
-        </h3>
-      </div>
-    </div>
+    </motion.div>
   );
-};
-
-export default ProjectComp;
+}

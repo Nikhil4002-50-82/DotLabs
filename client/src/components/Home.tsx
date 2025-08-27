@@ -2,66 +2,96 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import ProjectComp from "./ProjectComp";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const Home: React.FC = () => {
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]); // fades hero out
+  const scale = useTransform(scrollYProgress, [0, 0.25], [1.2, 1]); // zooms bg out
+
   return (
-    <div className="bg-[#7a3c3c] text-[#f5f5f5] overflow-hidden font-sans">
+    <div className="bg-black text-white overflow-hidden font-sans">
       <Header />
 
-      {/* Hero Section with Breaking Bad BG */}
-      <section
-        className="h-screen flex flex-col justify-center items-center text-center relative"
-        style={{
-          backgroundImage: "url('/bg.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+      {/* Hero Section */}
+      <motion.section
+        style={{ opacity }}
+        className="relative h-screen w-full flex flex-col justify-center items-center text-center overflow-hidden"
       >
-        <div className="absolute inset-0 bg-[#1a1a1a]/70"></div>
+        {/* Background */}
+        <motion.div style={{ scale }} className="absolute inset-0">
+          <div
+            className="h-full w-full mt-14"
+            style={{
+              backgroundImage: "url('/bg\ final.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+        </motion.div>
 
+        {/* Overlay Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black" />
+
+        {/* Hero Content */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="relative z-10"
+          transition={{ duration: 1.2 }}
+          className="relative z-10 px-6"
         >
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-[#e0b38c] drop-shadow-[3px_3px_0px_#000]">
-            Let’s Cook Some <span className="text-[#3d6a6b]">Web Magic</span> 💥
+          <h1
+            className="text-[12vw] md:text-[10vw] font-extrabold leading-[0.9] uppercase 
+             drop-shadow-[4px_4px_0px_#000] 
+             [text-shadow:_4px_4px_0_#e0b38c,_-4px_-4px_0_#3d6a6b]"
+          >
+            Crafting <span className="text-[#e0b38c]">Digital</span>
+            <br /> Experiences
           </h1>
-          <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-[#f5f5f5]">
-            We build modern, comic-inspired, badass websites —
-            <br /> Breaking the rules of boring design.
-          </p>
 
-          {/* Speech Bubble CTA */}
-          <div className="mt-10 relative inline-block">
-            <button className="px-8 py-3 bg-[#e0b38c] text-black font-bold rounded-full shadow-lg border-4 border-black relative z-10">
-              💬 Hire Me
-            </button>
-            <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-0 h-0 
-              border-l-[20px] border-r-[20px] border-t-[20px] border-transparent 
-              border-t-[#e0b38c]"></div>
-          </div>
+          <p className="mt-8 text-xl md:text-2xl max-w-2xl mx-auto text-gray-300">
+            Immersive. Bold. Cinematic. Websites that feel alive.
+          </p>
+        </motion.div>
+      </motion.section>
+
+      {/* About Section */}
+      <section className="min-h-screen flex items-center px-6 md:px-20 bg-black">
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="max-w-4xl"
+        >
+          <h2 className="text-[8vw] md:text-7xl font-bold mb-12 uppercase">
+            About Me
+          </h2>
+          <p className="text-xl md:text-2xl text-gray-400 leading-relaxed">
+            I’m a full-stack developer blending{" "}
+            <span className="text-[#e0b38c]">design</span>,{" "}
+            <span className="text-[#3d6a6b]">performance</span>, and{" "}
+            <span className="text-[#7a3c3c]">storytelling</span> into every
+            build. Inspired by cinematic visuals, I create websites that are{" "}
+            <span className="font-semibold">
+              immersive, bold, and unforgettable.
+            </span>
+          </p>
         </motion.div>
       </section>
 
-      {/* About Section styled like comic panel */}
-      <section className="py-20 px-6 max-w-6xl mx-auto border-4 border-black bg-[#f5f5f5] text-[#1a1a1a] rounded-2xl shadow-xl">
-        <h2 className="text-4xl font-bold mb-6">👨‍💻 About Me</h2>
-        <p className="text-lg leading-relaxed">
-          I’m a full-stack developer blending <span className="bg-[#e0b38c] px-1">design</span>, 
-          <span className="bg-[#3d6a6b] px-1 text-white">performance</span>, and 
-          <span className="bg-[#7a3c3c] px-1 text-white">storytelling</span> into every build.  
-          Inspired by Breaking Bad’s raw energy — I create websites that are 
-          bold, memorable, and a little dangerous. 🚬
-        </p>
-      </section>
-
       {/* Projects Section */}
-      <section className="py-20 px-6 max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12 text-[#e0b38c]">🔥 Featured Projects</h2>
-        <div className="grid md:grid-cols-3 gap-12">
+      <section className="py-40 px-6 md:px-20 bg-white text-black">
+        <motion.h2
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="text-[10vw] md:text-8xl font-bold text-center mb-20 uppercase"
+        >
+          Projects
+        </motion.h2>
+        <div className="grid md:grid-cols-3 gap-16">
           <ProjectComp
             title="Dobbespet Public School"
             projectSrc="/DobbespetPublicSchool.png"
@@ -80,22 +110,30 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Services Comic Panel */}
-      <section className="py-20 px-6 bg-[#1a1a1a] text-[#f5f5f5] border-t-4 border-b-4 border-[#3d6a6b]">
-        <h2 className="text-4xl font-bold text-center mb-12">💼 Services</h2>
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {/* Services Section */}
+      <section className="py-40 px-6 md:px-20 bg-black text-white">
+        <motion.h2
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="text-[9vw] md:text-7xl font-bold uppercase mb-16"
+        >
+          Services
+        </motion.h2>
+        <div className="grid md:grid-cols-3 gap-10">
           {[
-            "⚡ Web Development (React + Tailwind + Vite)",
-            "🛠 Full-Stack Development (Express + Supabase)",
-            "🎨 UI/UX Design & Prototyping",
-            "🚀 Landing Page & Portfolio Sites",
-            "📈 SEO Optimization & Performance",
-            "🤖 Future: AI & Mobile Apps",
+            "Web Development",
+            "Full-Stack Development",
+            "UI/UX Design",
+            "Landing Pages",
+            "SEO & Performance",
+            "AI + Mobile Apps",
           ].map((service, i) => (
             <motion.div
               key={i}
-              whileHover={{ scale: 1.05 }}
-              className="p-6 rounded-xl bg-[#e0b38c] text-black border-4 border-black shadow-xl font-semibold"
+              whileHover={{ scale: 1.05, rotate: -1 }}
+              className="p-10 rounded-2xl bg-[#111] text-white border border-gray-700 text-2xl font-semibold tracking-tight"
             >
               {service}
             </motion.div>
@@ -103,19 +141,24 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonials Comic Bubble */}
-      <section className="py-20 px-6 max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-8 text-[#e0b38c]">💬 Testimonials</h2>
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="inline-block relative px-6 py-4 bg-[#f5f5f5] text-black rounded-2xl border-4 border-black shadow-lg"
+      {/* Testimonials Section */}
+      <section className="py-40 px-6 md:px-20 bg-[#e0b38c] text-black text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="text-[8vw] md:text-6xl font-bold uppercase mb-16"
         >
-          “Working with Vilas was an incredible experience.  
-          He built a high-performing site with style.”  
-          <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-0 h-0 
-            border-l-[15px] border-r-[15px] border-t-[20px] border-transparent 
-            border-t-[#f5f5f5]"></div>
-        </motion.div>
+          Testimonials
+        </motion.h2>
+        <motion.blockquote
+          whileHover={{ scale: 1.05 }}
+          className="text-2xl md:text-3xl font-light leading-relaxed max-w-3xl mx-auto"
+        >
+          “Working with Vilas was an incredible experience. He built a
+          high-performing site with style.”
+        </motion.blockquote>
       </section>
 
       <Footer />

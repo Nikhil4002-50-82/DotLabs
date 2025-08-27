@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.cursor-particle {
+  position: absolute;
+  background: radial-gradient(circle, #39ff14 0%, #003300 80%);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.9;
+  box-shadow: 0 0 8px rgba(57, 255, 20, 0.8),
+              0 0 20px rgba(57, 255, 20, 0.5);
+  transition: opacity 0.8s ease, transform 1s ease;
+}
