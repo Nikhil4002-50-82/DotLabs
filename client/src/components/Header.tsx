@@ -76,9 +76,9 @@ const Header: React.FC = () => {
 
       {/* Desktop Nav */}
       <nav className="hidden md:flex space-x-6 text-lg font-semibold">
-        <a href="#" className="hover:text-[#e0b38c] transition-colors">Home</a>
-        <a href="#" className="hover:text-[#e0b38c] transition-colors">Services</a>
-        <a href="#" className="hover:text-[#e0b38c] transition-colors">Portfolio</a>
+        <a href="#" className="hover:text-[#e0b38c] transition-colors">Linkedin</a>
+        <a href="#" className="hover:text-[#e0b38c] transition-colors">Github</a>
+        <a href="#" className="hover:text-[#e0b38c] transition-colors">Email</a>
         <a href="#" className="hover:text-[#e0b38c] transition-colors">Contact</a>
       </nav>
 
@@ -112,13 +112,13 @@ const Header: React.FC = () => {
           flex flex-col items-center space-y-6 py-8 text-xl font-bold z-50"
         >
           <a href="#" onClick={toggleMenu} className="hover:text-[#e0b38c] transition-colors">
-            Home
+            Linkedin
           </a>
           <a href="#" onClick={toggleMenu} className="hover:text-[#e0b38c] transition-colors">
-            Services
+            Github
           </a>
           <a href="#" onClick={toggleMenu} className="hover:text-[#e0b38c] transition-colors">
-            Portfolio
+            Email
           </a>
           <a href="#" onClick={toggleMenu} className="hover:text-[#e0b38c] transition-colors">
             Contact

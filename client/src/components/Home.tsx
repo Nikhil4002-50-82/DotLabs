@@ -108,6 +108,7 @@ const Home: React.FC = () => {
             projectLink="https://quiz-2k25.vercel.app/"
           />
         </div>
+        </div>
       </section>
 
       {/* Services Section */}
